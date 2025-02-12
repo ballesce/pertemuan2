@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from 'react';
 
 export default function DataTable() {
@@ -68,36 +68,64 @@ export default function DataTable() {
     return (
         <div className="bg-gray-100 p-4 sm:p-6 min-h-screen">
             <div className="container mx-auto">
-               <center> <h1 className="text-xl sm:text-2xl font-bold mb-4 text-black">Data Mahasiswa</h1></center>
-                <div className="overflow-x-auto">
-                    <table className="table-auto w-full border-collapse border border-gray-300 bg-white shadow-md rounded-lg text-sm sm:text-base">
+                <center>
+                    <h1 className="text-xl sm:text-2xl font-bold mb-4 text-black">Data Mahasiswa</h1>
+                </center>
+
+                {/* Tampilan untuk Mobile */}
+                <div className="block lg:hidden">
+                    {data.map((row, index) => (
+                        <div
+                            key={index}
+                            className="mb-4 p-4 border border-gray-300 bg-white shadow-md rounded-lg text-black"
+                        >
+                            <p><strong>No:</strong> {row.no}</p>
+                            <p><strong>NIM:</strong> {row.nim}</p>
+                            <p><strong>Nama:</strong> {row.nama}</p>
+                            <p><strong>Gender:</strong> {row.gender}</p>
+                            <p><strong>Prodi:</strong> {row.prodi}</p>
+                            <p><strong>Kelas:</strong> {row.kelas}</p>
+                            <p><strong>Semester:</strong> {row.semester}</p>
+                            <p><strong>Alamat:</strong> {row.alamat}</p>
+                            <p><strong>Hobby:</strong> {row.hobby}</p>
+                            <p><strong>Cita-cita:</strong> {row.citaCita}</p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Tampilan untuk Desktop */}
+                <div className="hidden lg:block overflow-x-auto">
+                    <table className="table-auto w-full border-collapse border border-gray-300 bg-white shadow-md rounded-lg text-sm md:text-base text-black">
                         <thead>
                             <tr className="bg-gray-200 text-black">
-                                <th className="border border-gray-300 px-2 sm:px-4 py-2">No</th>
-                                <th className="border border-gray-300 px-2 sm:px-4 py-2">NIM</th>
-                                <th className="border border-gray-300 px-2 sm:px-4 py-2">Nama</th>
-                                <th className="border border-gray-300 px-2 sm:px-4 py-2">Gender</th>
-                                <th className="border border-gray-300 px-2 sm:px-4 py-2">Prodi</th>
-                                <th className="border border-gray-300 px-2 sm:px-4 py-2">Kelas</th>
-                                <th className="border border-gray-300 px-2 sm:px-4 py-2">Semester</th>
-                                <th className="border border-gray-300 px-2 sm:px-4 py-2">Alamat</th>
-                                <th className="border border-gray-300 px-2 sm:px-4 py-2">Hobby</th>
-                                <th className="border border-gray-300 px-2 sm:px-4 py-2">Cita-cita</th>
+                                <th className="border border-gray-300 px-4 py-2">No</th>
+                                <th className="border border-gray-300 px-4 py-2">NIM</th>
+                                <th className="border border-gray-300 px-4 py-2">Nama</th>
+                                <th className="border border-gray-300 px-4 py-2">Gender</th>
+                                <th className="border border-gray-300 px-4 py-2">Prodi</th>
+                                <th className="border border-gray-300 px-4 py-2">Kelas</th>
+                                <th className="border border-gray-300 px-4 py-2">Semester</th>
+                                <th className="border border-gray-300 px-4 py-2">Alamat</th>
+                                <th className="border border-gray-300 px-4 py-2">Hobby</th>
+                                <th className="border border-gray-300 px-4 py-2">Cita-cita</th>
                             </tr>
                         </thead>
                         <tbody>
                             {data.map((row, index) => (
-                                <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : ''}>
-                                    <td className="border border-gray-300 px-2 sm:px-4 py-2 text-center text-black">{row.no}</td>
-                                    <td className="border border-gray-300 px-2 sm:px-4 py-2 text-center text-black">{row.nim}</td>
-                                    <td className="border border-gray-300 px-2 sm:px-4 py-2 text-black">{row.nama}</td>
-                                    <td className="border border-gray-300 px-2 sm:px-4 py-2 text-center text-black">{row.gender}</td>
-                                    <td className="border border-gray-300 px-2 sm:px-4 py-2 text-black">{row.prodi}</td>
-                                    <td className="border border-gray-300 px-2 sm:px-4 py-2 text-center text-black">{row.kelas}</td>
-                                    <td className="border border-gray-300 px-2 sm:px-4 py-2 text-center text-black">{row.semester}</td>
-                                    <td className="border border-gray-300 px-2 sm:px-4 py-2 text-black">{row.alamat}</td>
-                                    <td className="border border-gray-300 px-2 sm:px-4 py-2 text-black">{row.hobby}</td>
-                                    <td className="border border-gray-300 px-2 sm:px-4 py-2 text-black">{row.citaCita}</td>
+                                <tr
+                                    key={index}
+                                    className={index % 2 === 0 ? 'bg-gray-50' : ''}
+                                >
+                                    <td className="border border-gray-300 px-4 py-2 text-center text-black">{row.no}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-center text-black">{row.nim}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-black">{row.nama}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-center text-black">{row.gender}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-black">{row.prodi}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-center text-black">{row.kelas}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-center text-black">{row.semester}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-black">{row.alamat}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-black">{row.hobby}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-black">{row.citaCita}</td>
                                 </tr>
                             ))}
                         </tbody>
